@@ -1,5 +1,6 @@
 public class HW9
 {
+//recursive method
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
            
         //if only the root exists then return root
@@ -17,6 +18,34 @@ public class HW9
        }
        return root;
 }
+//iterative method
+    public static TreeNode lowest(TreeNode root, TreeNode p, TreeNode q)
+    {
+        while(root != null)
+        {
+            if(p.val < root.val && q.val < root.val)
+            {
+                root = root.left;
+                if((p.val == root.left.val || p.val == root.val) && (q.val == root.val || q.val == root.right.val))
+                {
+                    return root;
+                }
+            }
+            else if(p.val > root.val && q.val > root.val)
+            {
+                root = root.right;
+                if((p.val == root.left.val || p.val == root.val) && (q.val == root.val || q.val == root.right.val))
+                {
+                    return root;
+                }
+            }
+            else 
+            {
+                return root;
+            }
+        }
+        return root;
+    }
     public static void main(String[] args)
     {
        
@@ -31,6 +60,8 @@ public class HW9
             // Test case: LCA of nodes 1 and 9
             TreeNode lca1 = lowestCommonAncestor(root, one, nine);
             System.out.println("LCA of 1 and 9: " + lca1.val); // Expected output: 4
+            // TreeNode test1 = lowest(root, one, nine);
+            // System.out.println("LCA iterative: " + test1.val);
     
             // Test case: LCA of nodes 5 and 9
             TreeNode lca2 = lowestCommonAncestor(root, five, nine);
