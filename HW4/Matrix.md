@@ -1,0 +1,6 @@
+# Worst Case Complexity:
+    - in the case that we are dealing with different values for COLS_A, COLS_B, and ROWS_A we will have the time complexity O(N*M*K) where each letter symbolises the amount of indeces within the respective arrays.We are multiplying each of these indeces because they are within loops that iterate within each other.
+# Average Case Complexity: 
+    - Similarly, in the case that we are dealing with different values for COLS_A, COLS_B and ROWS_A but there is also a chance that they may be the same size. In this case we can still so the that the time complexity is O(N*M*K) for the respective arrays. We are multiplying each of these indeces because they are within loops that iterate within each other.
+# Best Case Time Complexity:
+    - in the case that all the arrays are of the same length, due to the three interlaced for-loops we can calculate the time complexity to be O(N^3). This is because just like before we are multiplying them all toghther but since they are all the same value it results in N^3 with N being the size of all of them.
